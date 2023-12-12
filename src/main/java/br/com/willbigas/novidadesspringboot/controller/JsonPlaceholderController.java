@@ -28,6 +28,11 @@ public class JsonPlaceholderController {
 		return jsonPlaceHolderClient.getById(id);
 	}
 
+	@GetMapping("/all/{ids}")
+	public List<JsonPlaceholderResponseDTO> getById(@PathVariable Integer... ids) {
+		return jsonPlaceHolderClient.getByIds(ids);
+	}
+
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody JsonPlaceholderResponseDTO jsonPlaceholderResponseDTO) {
 		return jsonPlaceHolderClient.create(jsonPlaceholderResponseDTO);
